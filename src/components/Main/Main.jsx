@@ -12,12 +12,13 @@ const Main = () => {
     resultData,
     setInput,
     input,
+    newChat,
   } = useContext(Context);
 
   return (
     <div className="main">
       <div className="nav">
-        <p>Gemini</p>
+        <p onClick={() => newChat()}>Gemini</p>
         <img src={assets.user_icon} alt="user" />
       </div>
       <div className="main-container">
@@ -30,21 +31,21 @@ const Main = () => {
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-              <div className="card">
+              <div className="card" onClick={() => { setInput("Suggest me beautiful places to see on an upcoming road trip"); onSent("Suggest me beautiful places to see on an upcoming road trip"); }}>
                 <p>
                   Suggest me beautiful places to see on an upcoming road trip
                 </p>
                 <img src={assets.compass_icon} />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => { setInput("Briefly summarize this concept: Urban planning"); onSent("Briefly summarize this concept: Urban planning"); }}>
                 <p>Briefly summarize this concept: Urban planning</p>
                 <img src={assets.bulb_icon} />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => { setInput("Brainstorm team bonding activities for our work retreat"); onSent("Brainstorm team bonding activities for our work retreat"); }}>
                 <p>Brainstorm team bonding activities for our work retreat</p>
                 <img src={assets.message_icon} />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => { setInput("Improve the readability of the following code"); onSent("Improve the readability of the following code"); }}>
                 <p>Improve the readability of the following code</p>
                 <img src={assets.code_icon} />
               </div>
@@ -78,6 +79,11 @@ const Main = () => {
               value={input}
               type="text"
               placeholder="Enter a prompt here"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && input) {
+                  onSent();
+                }
+              }}
             />
             <div>
               <img src={assets.gallery_icon} alt="gallery" />
