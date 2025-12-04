@@ -34,10 +34,6 @@ async function main(prompt) {
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: prompt,
-    config: {
-      maxOutputTokens: 500,
-      temperature: 0.1,
-    },
   });
   console.log(response.text);
   return response.text;
