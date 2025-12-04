@@ -33,7 +33,7 @@ const Main = () => {
             <div className="cards">
               <div className="card" onClick={() => { setInput("Suggest me beautiful places to see on an upcoming road trip"); onSent("Suggest me beautiful places to see on an upcoming road trip"); }}>
                 <p>
-                  Suggest me beautiful places to see on an upcoming road trip
+                  Suggest me beautiful places 
                 </p>
                 <img src={assets.compass_icon} />
               </div>

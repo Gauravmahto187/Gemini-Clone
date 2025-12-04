@@ -26,12 +26,13 @@
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
-   apiKey: "AIzaSyBajuOtNCCHmeepGXkfnnw-PWlLXtq5_Xg",
+   apiKey: "AIzaSyAerw6ufsKWTJU-jaK6u3YBrz137H-BSxA",
+   
 });
 
 async function main(prompt) {
   const response = await ai.models.generateContent({
-    model: "gemini-2.0-flash",
+    model: "gemini-2.5-flash",
     contents: prompt,
     config: {
       maxOutputTokens: 500,
